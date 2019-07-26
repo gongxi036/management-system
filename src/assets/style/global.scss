@@ -1,0 +1,36 @@
+
+
+//  全局样式
+html{
+  box-sizing: border-box;
+  height: 100%;
+  font-size: 12px;
+}
+body{
+  box-sizing: border-box;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  font-size: 12px;
+  font-family: "Microsoft YaHei";
+  -webkit-font-smoothing:antialiased;
+}
+#app{
+  height: 100%;
+}
+
+.full-page{
+  height: 100%;
+}
+.fixed-height-page{
+  height: 100%;
+  overflow: hidden;
+}
+.page-view{
+  background: #F5F6FB!important;
+}
+.page-content{
+  background-color: #fff!important;
+  padding: 20px;
+  overflow: auto;
+}
