@@ -1,6 +1,6 @@
 <template>
-  <div class="app-wrapper">
-    <side-bar></side-bar>
+  <div class="app-wrapper" style="height:100%">
+    <SideBar class="sidebar-container" style="width: 250px;height:100%" />
   </div>
 </template>
 <script>
