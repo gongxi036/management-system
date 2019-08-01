@@ -1,10 +1,16 @@
 <template>
   <div class="app-wrapper" style="height:100%">
     <SideBar class="sidebar-container" style="width: 250px;height:100%" />
+    <div class="app-main">
+      <div class="app-header app-header-fixed">
+
+      </div>
+      <AppBody />
+    </div>
   </div>
 </template>
 <script>
-import { SideBar } from './componnets'
+import { SideBar, AppBody } from './componnets'
 export default {
   name: 'Layout',
   data () {
@@ -13,7 +19,8 @@ export default {
     }
   },
   components: {
-    SideBar
+    SideBar,
+    AppBody
   }
 }
 </script>

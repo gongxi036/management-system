@@ -1,0 +1,192 @@
+@import "./mixin.scss";
+@import "./variables.scss";
+
+.app-wrapper{
+  @include clearfix;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  .app-sidebar{
+    transition: width 0.28s;
+    width: $sideBarWidth !important;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1001;
+    overflow: hidden;
+    font-size: 0;
+    background-color: $sideBarBg;
+    box-shadow: 0px 0px 10px 0px rgba(4,44,84,0.3);
+
+    // reset element-ui css
+    .horizontal-collapse-transition {
+      transition: 0s width ease-in-out, 0s padding-left ease-in-out, 0s padding-right ease-in-out;
+    }
+
+    .scrollbar-wrapper {
+      overflow-x: hidden !important;
+    }
+
+    .el-scrollbar__bar.is-vertical {
+      right: 0px;
+    }
+
+    .el-scrollbar {
+      height: calc(100% - 50px);  //  50px logo height
+    }
+
+    .is-horizontal {
+      display: none;
+    }
+  }
+  .app-main{
+    .app-header {
+      position: fixed;
+      top: 0;
+      right: 0;
+      z-index: 9;
+      width: calc(100% - #{$sideBarWidth});
+      transition: width 0.28s;
+    }
+    .app-body{
+      box-sizing: border-box;
+      position: relative;
+      padding-top: $headerHeight;
+      padding-left: $sideBarWidth;
+      height: calc(100vh - #{$headerHeight});
+      width: 100%;
+      transition: margin-left .28s;
+    }
+  }
+}
+
+.app-wrapper.hideSidebar {
+  .app-sidebar {
+    width: $hideSideBarWidth !important;
+    transition-duration: 0.3s;
+  }
+  .app-main {
+    .app-header {
+      width: calc(100% - #{$hideSideBarWidth}) !important;
+    }
+    .app-body{
+      padding-left: $hideSideBarWidth !important;
+    }
+  }
+}
+
+//  menu
+.el-menu {
+  border: none;
+  height: 100%;
+  width: 100% !important;
+  text-align: left;
+  .el-submenu{
+    //  router link
+    a{
+      text-decoration: none;
+    }
+    .el-submenu__title {
+      background-color: $subMenuBg!important;
+      color: $subMenuText!important;
+      height: 60px!important;
+      i{
+        color: $subMenuText!important;
+      }
+      &:hover {
+        background-color: $subMenuHoverBg!important;
+        color: $subMenuHoverText!important;
+      }
+    }
+    &.is-active>.el-submenu__title {
+      background-color: $subMenuActiveBg!important;
+      color: $subMenuActiveText!important;
+      i{
+        color: $subMenuActiveText!important;
+      }
+    }
+  }
+  .el-menu-item {
+    min-width: $sideBarWidth !important;
+    background-color: $menuItemBg !important;
+    color: $menuItemText;
+    height: 52px!important;
+    &:hover {
+      background-color: $menuItemHoverBg !important;
+      color: $menuItemHoverText!important;
+    }
+    &.is-active{
+      background-color: $menuItemActiveBg !important;
+      color: $menuItemActiveText!important;
+      border-right: 4px solid rgba(25, 137, 250, 1);
+    }
+  }
+}
+
+// when menu collapsed
+.el-menu--collapse {
+  .el-submenu {
+    .el-submenu__title {
+      padding: 0 !important;
+      text-align: center;
+      &>span {
+        height: 0;
+        width: 0;
+        overflow: hidden;
+        visibility: hidden;
+        display: inline-block;
+      }
+      .el-submenu__icon-arrow {
+        display: none;
+      }
+    }
+    &.is-active .el-submenu__title{
+      //  icon
+      i{
+        color: $subMenuActiveText;
+      }
+    }
+  }
+}
+.el-menu--vertical {
+  // the scroll bar appears when the subMenu is too long
+  >.el-menu--popup {
+    max-height: 100vh;
+    overflow-y: auto;
+
+    //  router link
+    a{
+      text-decoration: none;
+    }
+  .el-menu-item {
+      background-color: $menuItemBg !important;
+      color: $menuItemText;
+      height: 52px!important;
+      &:hover {
+        background-color: $menuItemHoverBg !important;
+        color: $menuItemHoverText!important;
+      }
+      &.is-active{
+        background-color: $menuItemActiveBg !important;
+        color: $menuItemActiveText!important;
+      }
+    }
+
+
+    &::-webkit-scrollbar-track-piece {
+      background: #d3dce6;
+    }
+
+    &::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: #99a9bf;
+      border-radius: 20px;
+    }
+  }
+}
+

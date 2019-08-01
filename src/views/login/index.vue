@@ -77,6 +77,8 @@ export default {
           console.log(res)
           if (res.flag) {
             localStorage.setItem('role', res.data)
+            this.$store.commit('user/SET_NAME', res.data)
+            this.$store.commit('user/SET_TOKEN', '123456')
             this.$router.push('/')
           } else {
             console.log(res.msg)

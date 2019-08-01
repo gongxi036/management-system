@@ -9,7 +9,6 @@ module.exports = {
     disableHostCheck: true,
     proxy: {
       '/api': {
-        // https://patrol-test.koudailingqian.com
         target: 'https://patrol-test.koudailingqian.com',
         changeOrigin: true,
         pathRewrite: {

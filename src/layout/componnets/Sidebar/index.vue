@@ -1,19 +1,28 @@
 <template>
-  <el-aside class="app-aside" width="250px" height="100%">
-    <el-menu>
-      <MenuTee v-for="(menu, index) in menuList" :key="index" :menu="menu"></MenuTee>
-    </el-menu>
-  </el-aside>
+  <div class="app-sidebar">
+    <el-scrollbar wrap-class="scrollbar-wrapper">
+      <el-menu
+        mode="vertical"
+      >
+        <Logo :collapse="isCollapse"/>
+        <!-- <sidebar-item v-for="route in accessRoutes" :key="route.path" :item="route" :base-path="route.path" /> -->
+        <MenuTee v-for="(menu, index) in menuList" :key="index" :menu="menu"></MenuTee>
+      </el-menu>
+    </el-scrollbar>
+  </div>
 </template>
 <script>
+import Logo from './Logo'
 import MenuTee from './MenuTree'
 export default {
   name: 'Sidebar',
   components: {
-    MenuTee
+    MenuTee,
+    Logo
   },
   data () {
     return {
+      isCollapse: false,
       menuList: [
         {
           id: '1',

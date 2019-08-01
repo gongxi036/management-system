@@ -1,4 +1,4 @@
-
+@import "~normalize.css/normalize.css";
 
 //  全局样式
 html{
@@ -15,22 +15,28 @@ body{
   font-family: "Microsoft YaHei";
   -webkit-font-smoothing:antialiased;
 }
+
+p,h1,h2,h3,h4,h5,h6{
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+}
+
 #app{
   height: 100%;
 }
 
-.full-page{
-  height: 100%;
+.page{
+  padding: 10px;
 }
-.fixed-height-page{
-  height: 100%;
-  overflow: hidden;
+
+// fix css style bug in open el-dialog
+.el-popup-parent--hidden {
+  .fixed-header {
+    padding-right: 15px;
+  }
 }
-.page-view{
-  background: #F5F6FB!important;
-}
-.page-content{
-  background-color: #fff!important;
-  padding: 20px;
-  overflow: auto;
-}
+
+
+
+@import "./layout";
