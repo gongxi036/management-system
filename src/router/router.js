@@ -23,7 +23,7 @@ export const constantRouterMap = [
     children: [
       {
         path: '/dashboard',
-        name: 'Dashboard',
+        name: '首页',
         component: () => import('@/views/dashboard/index'),
         meta: { title: '首页', icon: 'dashboard' }
       }

@@ -1,4 +1,5 @@
 import axios from 'axios'
+import store from '@/store'
 // import { Message } from 'element-ui' //  todo 添加加载动画
 // import { getToken, removeToken } from '../assets/js/storage/token.js'
 // 创建axios实例
@@ -43,7 +44,13 @@ service.interceptors.response.use(
     console.error(error) // for debug
     if (error && error.response) {
       switch (error.response.status) {
-        case 401: error.message = '未授权，请登录'; break
+        case 401:
+          error.message = '未授权，请登录'
+          console.log('退出')
+          store.dispatch('user/LogOut').then(() => {
+            location.reload() // 为了重新实例化vue-router对象 避免bug
+          })
+          break
         case 403: error.message = '拒绝访问'; break
         case 404: error.message = `请求地址出错: ${error.response.config.url}`; break
         case 408: error.message = '请求超时'; break

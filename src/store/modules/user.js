@@ -1,5 +1,5 @@
 
-import { getToken, setToken } from '@/utils/auth'
+import { getToken, setToken, removeToken } from '@/utils/auth'
 
 const state = {
   token: getToken(),
@@ -16,8 +16,20 @@ const mutations = {
   }
 }
 
+const actions = {
+  LogOut ({ commit }) {
+    return new Promise((resolve, reject) => {
+      commit('SET_TOKEN', '')
+      commit('SET_NAME', '')
+      removeToken()
+      resolve()
+    })
+  }
+}
+
 export default {
   namespaced: true,
   state,
-  mutations
+  mutations,
+  actions
 }

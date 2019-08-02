@@ -1,6 +1,6 @@
 const getters = {
   name: state => state.user.name,
-  accessRoutes: state => state.permission.route,
+  permission_routers: state => state.permission.router,
   asyncRoutes: state => state.permission.asyncRoutes
 }
 
