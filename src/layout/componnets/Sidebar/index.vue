@@ -1,24 +1,24 @@
 <template>
   <div class="app-sidebar">
+    <Logo :collapse="isCollapse"/>
     <el-scrollbar wrap-class="scrollbar-wrapper">
       <el-menu
         mode="vertical"
       >
-        <Logo :collapse="isCollapse"/>
-        <!-- <sidebar-item v-for="route in accessRoutes" :key="route.path" :item="route" :base-path="route.path" /> -->
-        <MenuTee v-for="(menu, index) in permission_routers" :key="index" :menu="menu"></MenuTee>
+        <sidebar-item v-for="route in permission_routers" :key="route.path" :item="route" :base-path="route.path" />
+        <!-- <MenuTee v-for="(menu, index) in permission_routers" :key="index" :menu="menu"></MenuTee> -->
       </el-menu>
     </el-scrollbar>
   </div>
 </template>
 <script>
 import Logo from './Logo'
-import MenuTee from './MenuTree'
+import SidebarItem from './SidebarItem'
 import { mapGetters } from 'vuex'
 export default {
   name: 'Sidebar',
   components: {
-    MenuTee,
+    SidebarItem,
     Logo
   },
   data () {

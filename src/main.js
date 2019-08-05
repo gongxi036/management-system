@@ -8,6 +8,8 @@ import 'element-ui/lib/theme-chalk/index.css'
 
 import '@/assets/style/global.scss'
 
+import '@/icon' // icon
+
 Vue.use(ElementUI)
 
 Vue.config.productionTip = false

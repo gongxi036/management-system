@@ -31,20 +31,6 @@ router.beforeEach((to, from, next) => {
       next(`/login?redirect=${to.path}`) // 否则全部重定向到登录页
     }
   }
-  // if (role) {
-  //   if (to.path === '/login') {
-  //     console.log(1)
-  //     next('/')
-  //   } else {
-  //     console.log(2)
-  //     next()
-  //   }
-  // } else if (to.path !== '/login') {
-  //   console.log(3)
-  //   next({ path: '/login' })
-  // } else {
-  //   next()
-  // }
 })
 
 export const loadMenus = (next, to) => {
@@ -54,7 +40,7 @@ export const loadMenus = (next, to) => {
     asyncRouter.push({ path: '*', redirect: '/404', hidden: true })
     // console.log(asyncRouter)
     store.dispatch('permission/GenerateRoutes', asyncRouter).then(() => {
-      // router.addRoutes(asyncRouter)
+      router.addRoutes(asyncRouter)
       console.log(router)
       next({ ...to, replace: true })
     })

@@ -35,6 +35,11 @@ export const constantRouterMap = [
     component: () => import('@/views/login'),
     hidden: true,
     meta: { title: '登录' }
+  },
+  {
+    path: '/404',
+    component: () => import('@/views/error-page/404'),
+    hidden: true
   }
 ]
 export default new Router({
