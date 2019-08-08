@@ -16,7 +16,7 @@ router.beforeEach((to, from, next) => {
       next({ path: '/' })
     } else {
       const asyncRoutes = store.getters.asyncRoutes
-      console.log(asyncRoutes)
+      // console.log(asyncRoutes)
       if (asyncRoutes.length) {
         next()
       } else {
